@@ -1,0 +1,50 @@
+app:
+  config:
+    version: 3
+
+server:
+  port: 8081
+
+eureka:
+  instance:
+    instance-id: todo-service
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  application:
+    name: todo-service
+  rabbitmq:
+    password: guest
+    username: guest
+    host: localhost
+    port: 5672
+  datasource:
+    username: user
+    password: password
+
+  h2:
+    console:
+      path: /h2-console
+      settings:
+        trace: true
+      enabled: true
+  jpa:
+    show-sql: true
+
+
+# Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+
+logging:
+  level:
+    root: warn
+    com.melardev: trace
+    org.springframework.web: debug
+
